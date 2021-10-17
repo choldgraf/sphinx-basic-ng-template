@@ -1,0 +1,12 @@
+/*********************************************
+* Simple CSS rules
+*
+* This defines very simple CSS rules for the
+* site to demonstrate how this works.
+* They will be compiled with the template
+* via a pre-commit hook using `web-compile`
+*********************************************/
+
+body {
+    background-color: $scss-variable-one;
+}

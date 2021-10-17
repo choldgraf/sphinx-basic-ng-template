@@ -1,0 +1,7 @@
+/*! sphinx-basic-ng-template CSS
+ * BSD 3-Clause License
+ * Copyright (c) 2020, EBP
+ * All rights reserved.
+ */:root{--variable-color: red;--variable-scss-inherit: $scss-variable-two}body{background-color:#add8e6}
+
+/*# sourceMappingURL=basic-ng-template.scss.map.json */

@@ -1,0 +1,26 @@
+web-compile:
+  # Compiles our SCSS into CSS
+  sass:
+    encoding: utf8
+    files:
+      src/scss/basic-ng-template.scss: basic_ng_template/theme/basic_ng_template/static/basic-ng-template.css
+    format: compressed
+    precision: 5
+    sourcemap: true
+  # Minifies our JS into a bundle
+  js:
+    encoding: utf8
+    files:
+      src/js/basic-ng-template.js: basic_ng_template/theme/basic_ng_template/static/basic-ng-template.js
+    format: compressed
+    precision: 5
+    sourcemap: true
+  # Links the theme's CSS to the latest hash of our CSS
+  jinja:
+    files:
+      src/jinja/hashes.csv.j2: basic_ng_template/theme/basic_ng_template/hashes.csv
+  continue_on_error: true
+  exit_code: 2
+  test_run: false
+  verbose: false
+  quiet: false

@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "basic-ng-template.css",
+	"sourceRoot": "../../../../src/scss",
+	"sources": [
+		"basic-ng-template.scss",
+		"_variables.scss",
+		"_simple.scss"
+	],
+	"names": [],
+	"mappings": "AAAA;;;;GAIG,CCQF,AAAD,IAAK,AAAC,CACF,gBAAgB,CAAA,IAAC,CACjB,uBAAuB,CAAA,mBAAC,CAC3B,ACND,AAAA,IAAI,AAAC,CACD,gBAAgB,CDHA,OAAS,CCI5B"
+}

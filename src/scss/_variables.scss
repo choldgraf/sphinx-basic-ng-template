@@ -1,0 +1,17 @@
+/*********************************************
+* Variables
+* Use this to define CSS or SCSS variables.
+* Both are shown below.
+*********************************************/
+
+// SCSS variables
+$scss-variable-one: lightblue;
+$scss-variable-two: blue;
+
+// A CSS variable
+// A second CSS variable that uses an SCSS variable
+:root {
+    --variable-color: red;
+    --variable-scss-inherit: $scss-variable-two;
+}
+
