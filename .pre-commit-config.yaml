@@ -1,0 +1,13 @@
+# Install pre-commit hooks via
+# pre-commit install
+repos:
+  - repo: https://github.com/executablebooks/web-compile
+    rev: v0.2.2
+    hooks:
+      - id: web-compile
+        files: >-
+            (?x)^(
+                web-compile-config.yml|
+                src/.*|
+                basic_ng_template/.*
+            )$

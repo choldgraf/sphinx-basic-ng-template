@@ -5,16 +5,12 @@ web-compile:
     files:
       src/scss/basic-ng-template.scss: basic_ng_template/theme/basic_ng_template/static/basic-ng-template.css
     format: compressed
-    precision: 5
-    sourcemap: true
   # Minifies our JS into a bundle
   js:
     encoding: utf8
     files:
       src/js/basic-ng-template.js: basic_ng_template/theme/basic_ng_template/static/basic-ng-template.js
     format: compressed
-    precision: 5
-    sourcemap: true
   # Links the theme's CSS to the latest hash of our CSS
   jinja:
     files:

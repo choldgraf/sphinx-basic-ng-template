@@ -33,10 +33,12 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
 
     # We manually add CSS and JS files here so we can use *hashes*.
     # This allows us to do cache-busting without hard-coding the hash in the filename.
-    hashes = Path(__file__).parent / "theme/basic_ng_template/hashes.csv"
-    hashes = {kind:(path, hash) for kind, path, hash in csv.reader(hashes.read_text().split())}
-    app.add_css_file(f"{hashes['css'][0]}?digest={hashes['css'][1]}")
-    app.add_js_file(f"{hashes['js'][0]}?digest={hashes['js'][1]}")
+    assets = Path(__file__).parent / "theme/basic_ng_template/hashes.csv"
+    for kind, path, hash in assets.read_text().split():
+        if kind == "css":
+            app.add_css_file(f"{path}?digest={hash}")
+        elif kind == "js":
+            app.add_js_file(f"{path}?digest={hash}")
 
     return {
         "parallel_read_safe": True,
