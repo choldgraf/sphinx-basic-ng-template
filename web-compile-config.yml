@@ -11,12 +11,9 @@ web-compile:
     files:
       src/js/basic-ng-template.js: basic_ng_template/theme/basic_ng_template/static/basic-ng-template.js
     format: compressed
-  # Links the theme's CSS to the latest hash of our CSS
-  jinja:
-    files:
-      src/jinja/hashes.csv.j2: basic_ng_template/theme/basic_ng_template/hashes.csv
   continue_on_error: true
   exit_code: 2
   test_run: false
   verbose: false
   quiet: false
+  git_add: false  # Prevent web-compile from committing the generated assets

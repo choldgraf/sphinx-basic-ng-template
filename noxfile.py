@@ -20,7 +20,7 @@ def docs_live(session):
             "--watch=basic_ng_template",
             "--watch=src",
             "--open-browser",
-            "--pre-build=web-compile",
+            "--pre-build=web-compile --exit-code 0",
             # for sphinx
             "-b=dirhtml",
             "-a",
@@ -34,7 +34,7 @@ def docs_live(session):
 def docs(session):
     _install_deps(session)
 
-    session.run("web-compile")
+    session.run("web-compile", "--exit-code", "0")
     session.run(
         "sphinx-build",
         "-b=dirhtml",
@@ -43,6 +43,7 @@ def docs(session):
         "docs/_build/example-docs",
         env={"PYTHONPATH": "."},
     )
+
 
 def _install_deps(session):
     if (Path(session.bin) / "sphinx-build").exists() and "reinstall" not in session.posargs:

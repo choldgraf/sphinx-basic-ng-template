@@ -140,3 +140,5 @@ cython_debug/
 # Package-specific stuff
 .nox
 docs/_build
+basic_ng_template/theme/basic_ng_template/static/basic-ng-template.css
+basic_ng_template/theme/basic_ng_template/static/basic-ng-template.js
