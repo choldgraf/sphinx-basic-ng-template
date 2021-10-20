@@ -4,11 +4,13 @@ __version__ = "0.0.1"
 
 from pathlib import Path
 from typing import Any, Dict
-import csv
+from functools import lru_cache
+import hashlib
 
 import sphinx
 
 _THEME_PATH = (Path(__file__).parent / "theme" / "basic_ng_template").resolve()
+_STATIC_PATH = _THEME_PATH / "static"
 
 
 def _html_page_context(
@@ -31,14 +33,15 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
     # This adds a basic function that is called each time an HTML page is generated
     app.connect("html-page-context", _html_page_context)
 
-    # We manually add CSS and JS files here so we can use *hashes*.
+    # Manually add CSS and JS files here so we can use *hashes*.
     # This allows us to do cache-busting without hard-coding the hash in the filename.
-    assets = Path(__file__).parent / "theme/basic_ng_template/hashes.csv"
-    for kind, path, hash in assets.read_text().split():
-        if kind == "css":
-            app.add_css_file(f"{path}?digest={hash}")
-        elif kind == "js":
-            app.add_js_file(f"{path}?digest={hash}")
+    path_css = _STATIC_PATH / "basic-ng-template.css"
+    digest_css = hashlib.sha1(path_css.read_bytes()).hexdigest()
+    app.add_css_file(f"{path_css.relative_to(_STATIC_PATH)}?digest={digest_css}")
+    
+    path_js = _STATIC_PATH / "basic-ng-template.js"
+    digest_js = hashlib.sha1(path_js.read_bytes()).hexdigest()    
+    app.add_js_file(f"{path_js.relative_to(_STATIC_PATH)}?digest={digest_js}")
 
     return {
         "parallel_read_safe": True,
